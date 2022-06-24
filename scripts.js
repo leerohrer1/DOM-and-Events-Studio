@@ -7,11 +7,11 @@ function init() {
   const spaceShuttleHeight = document.getElementById('spaceShuttleHeight');
   const landing = document.getElementById('landing');
   const missionAbort = document.getElementById('missionAbort');
-  // const up = document.getElementById('up');
-  // const down = document.getElementById('down');
-  // const left = document.getElementById('left');
-  // const right = document.getElementById('right');
-  // const rocket = document.getElementById('rocket');
+  const up = document.getElementById('up');
+  const down = document.getElementById('down');
+  const left = document.getElementById('left');
+  const right = document.getElementById('right');
+  const rocket = document.getElementById('rocket');
 
   takeoff.addEventListener('click', function () {
     result = window.confirm('Are you sure the shuttle is ready for takeoff?');
@@ -40,10 +40,21 @@ function init() {
     }
   });
 
-  // up.addEventListener('click', function () {});
-  // down.addEventListener('click', function () {});
-  // left.addEventListener('click', function () {});
-  // right.addEventListener('click', function () {});
+  up.addEventListener('click', function () {
+    rocket.style.marginTop = parseInt(rocket.style.marginTop) - 10 + 'px';
+    spaceShuttleHeight.innerHTML = parseInt(spaceShuttleHeight.innerHTML) + 10000
+  });
+  down.addEventListener('click', function () {
+    rocket.style.marginTop = parseInt(rocket.style.marginTop) + 10 + 'px';
+    spaceShuttleHeight.innerHTML = parseInt(spaceShuttleHeight.innerHTML) - 10000
+  });
+  left.addEventListener('click', function () {
+    rocket.style.marginLeft = parseInt(rocket.style.marginLeft) - 10 + 'px';
+  });
+  right.addEventListener('click', function () {
+    rocket.style.marginLeft = parseInt(rocket.style.marginLeft) + 10 + 'px';
+
+  });
 }
 
 window.addEventListener('load', init);
